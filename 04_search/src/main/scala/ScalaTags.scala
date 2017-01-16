@@ -29,7 +29,18 @@ package tutorial {
       def renderListings = ul(
         for {
           fruit <- listing if (fruit.toLowerCase().startsWith(text.value.toLowerCase()))
-        } yield li(fruit)
+        } yield {
+          val (first, last) = fruit.splitAt(
+            text.value.length
+          )
+          li(
+            span(
+              backgroundColor:="yellow",
+              first
+            ),
+            last
+          )
+        }
       ).render
 
       val output = div(renderListings).render
