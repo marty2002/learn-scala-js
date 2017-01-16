@@ -18,14 +18,6 @@ package tutorial {
           "/posts/1"
 
       Ajax.get(url).onSuccess{ case xhr =>
-        /*dom.document.getElementById("app").appendChild(
-          pre(
-            js.JSON.stringify(
-              js.JSON.parse(xhr.responseText),
-              space=4
-            )
-          ).render
-        )*/
         if (xhr.status == 200) {
           val json = js.JSON.parse(xhr.responseText)
           val title = json.title.toString
